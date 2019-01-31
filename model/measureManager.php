@@ -6,19 +6,20 @@ class MeasureManager extends DatabaseConnection{
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('INSERT INTO data(id, datetime, temperature, humidity)'.' VALUES(:id, :datetime, :temperature, :humidity)');
         
-        if ($temperature!='' && $humidity!='') {
             $req->execute(array(
-                'temperature'=>$temperature,
-                'humidity'=>$humidity
+                'id' => 0,
+                'datetime' => $datetime,
+                'temperature' => $temperature,
+                'humidity' => $humidity
             )
                 );
-        }
-        
    }
     
    public function getAllMeasure() {
+       $array = [];
        $bdd = $this->dbConnect();
-       $req = $bdd->prepare('SELECT * FROM data');
+       
+       $req = $bdd->query('SELECT * FROM data');
        
        if ($req->excecute()) {
        
@@ -37,15 +38,17 @@ class MeasureManager extends DatabaseConnection{
    
    public function getMeasureById($id) {
        $bdd= $this->dbConnect();
-       
-       $req = $bdd->prepare('SELECT * FROM temperature, humidity, datetime FROM data where id = :id');
+       $req = $bdd->query('SELECT * FROM temperature, humidity, datetime FROM data where id = :id');
        
        $req->bindParam(":id", $id);
        
    }
    
    public function getLastMeasure() {
+       $bdd= $this->dbConnect();
+       $req = $bdd->query('SELECT * FROM data BY datetime');
        
+       return $req;
    }
    
    public function updateMeasure($measure, $id) {
