@@ -65,7 +65,7 @@ class Measure{
 
 /**
      * @param mixed $temperature
-     */
+     */               
     public function setTemperature($temperature)
     {
         $this->temperature = $temperature;

@@ -4,10 +4,9 @@ namespace dht11_MVC\model;
 class MeasureManager extends DatabaseConnection{
     public function createMeasure(){
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('INSERT INTO data(id, datetime, temperature, humidity)'.' VALUES(:id, :datetime, :temperature, :humidity)');
+        $req = $bdd->prepare('INSERT INTO data(datetime, temperature, humidity)'.' VALUES(:datetime, :temperature, :humidity)');
         
             $req->execute(array(
-                'id' => 0,
                 'datetime' => $datetime,
                 'temperature' => $temperature,
                 'humidity' => $humidity
