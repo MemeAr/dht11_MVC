@@ -1,6 +1,6 @@
 <?php
 
-require 'model/measureManager.php';
+require '../model/measureManager.php';
 
 ?>
 
@@ -16,6 +16,7 @@ require 'model/measureManager.php';
 	<h1>Température</h1>
 
     <?php
+  
     $json_source = file_get_contents('../data.json');
     
     $json_data = json_decode($json_source);
@@ -25,8 +26,8 @@ require 'model/measureManager.php';
     $baragraph_top = 315 - $json_data->temperature * 4; 
     ?>
     <div>
-    	<p>Il fait actuellement <?php echo($info -> temperature);?>°C et le taux d'humidité est de
-    	<?php echo($info -> humidity);?>%.</p>
+    	<p>Il fait actuellement <?php echo($json_data -> temperature);?>°C et le taux d'humidité est de
+    	<?php echo($json_data -> humidite);?>%.</p>
     	
     	<?php
             $filename = '../data.json';
@@ -35,7 +36,7 @@ require 'model/measureManager.php';
             }
         ?>
         <div id="thermometer">
-  			<div id="bargraph" style=<?php echo "\"height:".$bargraph_height."px; top:".$bargraph_top."px;\"";?>></div>
+  			<div id="bargraph" style=<?php echo "\"height:".$baragraph_height."px; top:".$baragraph_top."px;\"";?>></div>
 		</div>
     </div>
     

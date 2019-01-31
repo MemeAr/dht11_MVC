@@ -1,7 +1,7 @@
 <?php
 namespace dht11_MVC\model;
 
-require_once 'inc/config.inc.php';
+require_once '../inc/config.inc.php';
 
 class DatabaseConnection {
     protected function dbConnect() {

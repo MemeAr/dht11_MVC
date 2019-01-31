@@ -1,6 +1,8 @@
 <?php
 namespace dht11_MVC\model;
 
+require_once 'databaseConnection.php';
+
 class MeasureManager extends DatabaseConnection{
     public function createMeasure(){
         $bdd = $this->dbConnect();
