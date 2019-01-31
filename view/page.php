@@ -26,10 +26,10 @@ require 'model/measureManager.php';
     ?>
     <div>
     	<p>Il fait actuellement <?php echo($info -> temperature);?>°C et le taux d'humidité est de
-    	<?php echo($info -> humidite);?>%.</p>
+    	<?php echo($info -> humidity);?>%.</p>
     	
     	<?php
-            $filename = 'data.json';
+            $filename = '../data.json';
             if (file_exists($filename)) {
                 echo "La météo a été update le : " . date("d-m-Y H:i:s.", filectime($filename));
             }
@@ -38,6 +38,20 @@ require 'model/measureManager.php';
   			<div id="bargraph" style=<?php echo "\"height:".$bargraph_height."px; top:".$bargraph_top."px;\"";?>></div>
 		</div>
     </div>
+    
+    <?php 
+	
+	$req = $bdd->prepare('INSERT INTO data(humidity, temperature) VALUES(:humidity, :temperature)');
+	
+	$req->execute(array(
+	    
+	    'humidity' => $json_data->humidity,
+	    
+	    'temperature' => $json_data->temperature
+	    
+	));
+	
+	?>
     
     
 </body>
