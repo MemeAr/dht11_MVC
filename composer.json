@@ -1,0 +1,11 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"MéméMya\\Dht11_MVC\\" : "src"
+		}
+	},
+	"name" : "MéméMya/dht11_MVC",
+	"require" : {
+		"php" : ">=7.1"
+	}
+}
