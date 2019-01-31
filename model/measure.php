@@ -15,33 +15,70 @@ class Measure{
     $this->temperature = $temerature;
     $this->humidity = $humidity;
   }
+/**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-  public function get($id){
-    return $id;
-  }
+/**
+     * @return mixed
+     */
+    public function getDatetime()
+    {
+        return $this->datetime;
+    }
 
-  public function set($id){
-    $this->id = $id;
-  }
-  public function get($datetime){
-    return $datetime;
-  }
+/**
+     * @return mixed
+     */
+    public function getTemperature()
+    {
+        return $this->temperature;
+    }
 
-  public function set($datetime){
-    $this->datetime = $datetime;
-  }
-  public function get($temerature){
-    return $temerature;
-  }
+/**
+     * @return mixed
+     */
+    public function getHumidity()
+    {
+        return $this->humidity;
+    }
 
-  public function set($temerature){
-    $this->temperature = $temerature;
-  }
-  public function get($humidity){
-    return $humidity;
-  }
+/**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
-  public function set($humidity){
-    $this->$humidity = $humidity;
-  }
+/**
+     * @param mixed $datetime
+     */
+    public function setDatetime($datetime)
+    {
+        $this->datetime = $datetime;
+    }
+
+/**
+     * @param mixed $temperature
+     */
+    public function setTemperature($temperature)
+    {
+        $this->temperature = $temperature;
+    }
+
+/**
+     * @param mixed $humidity
+     */
+    public function setHumidity($humidity)
+    {
+        $this->humidity = $humidity;
+    }
+
+
+ 
 }
