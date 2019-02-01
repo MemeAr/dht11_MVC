@@ -36,7 +36,7 @@ require '../model/measureManager.php';
             }
         ?>
         <div id="thermometer">
-  			<div id="bargraph" style=<?php echo "\"height:".$baragraph_height."px; top:".$baragraph_top."px;\"";?>></div>
+  			<div id="baragraph" style=<?php echo "\"height:".$baragraph_height."px; top:".$baragraph_top."px;\"";?>></div>
 		</div>
     </div>
 
